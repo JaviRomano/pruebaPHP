@@ -31,17 +31,17 @@ include 'config.php';  // este tipo de datos suele ubicarse en archivo 'config.p
                     <div class="mb-3">
                         <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
                         <input type="date" name="birthdate" id="birthdate" class="form-control" required>
-                    </div>
+                    </div>                   
                     <div class="mb-3">
                         <label for="department" class="form-label">¿Con quien desea contactar?</label>
                         <select name="department" id="department" class="form-select" required>
-                            <option value="" selected disabled>Seleccione departamento al que desea contactar</option>     
+                            <option value="" selected disabled>Seleccione departamento al que desea contactar</option>
                             <?php
-                            
-                            foreach($departments as $key => $deptSelect) {
-                                echo "<option value='".$key. "'>".$deptSelect ."</option>";
+
+                            foreach ($departments as $key => $deptSelect) {
+                                echo "<option value='" . $key . "'>" . $deptSelect . "</option>";
                             }
-                            ?>                                                   
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3">
