@@ -1,6 +1,7 @@
 <?php
 $title = "Datos de Formulario";
 include 'header.php';
+include 'config.php';
 
 
 $name = htmlspecialchars($_POST["name"]);
@@ -13,12 +14,6 @@ $birthdate_cal = new DateTime($birthdate);
 $today = new DateTime();
 $age = $today->diff($birthdate_cal)->y;
 
-$departments = [
-    "hhrr" => "recursos humanos",
-    "service" => "servicios",
-    "sells" => "ventas",
-    "another" => "otras gestiones generales"
-];
 $department_text = $departments[$department];
 
 

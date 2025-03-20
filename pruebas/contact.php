@@ -1,6 +1,7 @@
 <?php
 $title = "Contacto";
 include 'header.php';
+include 'config.php';  // este tipo de datos suele ubicarse en archivo 'config.php'
 
 ?>
 
@@ -34,11 +35,13 @@ include 'header.php';
                     <div class="mb-3">
                         <label for="department" class="form-label">¿Con quien desea contactar?</label>
                         <select name="department" id="department" class="form-select" required>
-                            <option value="" selected disabled>Seleccione departamento al que desea contactar</option>
-                            <option value="hhrr">Recursos Humanos</option>
-                            <option value="service">Servicios</option>
-                            <option value="sells">Ventas</option>
-                            <option value="another">Otro</option>
+                            <option value="" selected disabled>Seleccione departamento al que desea contactar</option>     
+                            <?php
+                            
+                            foreach($departments as $key => $deptSelect) {
+                                echo "<option value='".$key. "'>".$deptSelect ."</option>";
+                            }
+                            ?>                                                   
                         </select>
                     </div>
                     <div class="mb-3">
