@@ -15,11 +15,12 @@ Este proyecto es un sistema de gestión de contactos desarrollado con **PHP**.
 │── /assets/             # Recursos estáticos
 │   ├── /css/            # Estilos personalizados
 │   ├── /img/            # Imágenes
-│   ├── contact.php      # Formulario de contacto
-│   ├── about.php        # Información del proyecto
-│── /uploads/            # Carpeta para archivos subidos
+├── contact.php          # Formulario de contacto
+├── about.php            # Información del proyecto
 ├── header.php           # Encabezado y navbar
 │── index.php            # Página principal
+├── login.php            # pagina para hacer login
+│── register.php         # Página donde se registra nuevo usuario
 │── action.php           # Procesamiento de formularios
 │── config.php           # Configuración del proyecto
 │── README.md            # Información del proyecto
