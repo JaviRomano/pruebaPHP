@@ -15,7 +15,7 @@ include 'config.php';  // este tipo de datos suele ubicarse en archivo 'config.p
                 <h5 class="text-center">Formulario de contacto</h5>
             </div>
             <div class="modal-body mt-4 bg-white">
-                <form action="action.php" method="post" enctype="multipart/form-data" class="p-4 bg-sky border rounded">
+                <form action="action_contact.php" method="post" enctype="multipart/form-data" class="p-4 bg-sky border rounded">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre:</label>
                         <input type="text" name="name" class="form-control" required>
