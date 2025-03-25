@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 require 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,30 +23,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $check->execute([
         'userName' => $userName,
-        'email' => $email]);
+        'email' => $email
+    ]);
     if ($check->fetchColumn() > 0) {
         echo "<div class='container mt-5'>";
-        echo "<h2 class='text-black bg-sky text-center d-inline-block border rounded p-3'>Error</h2>";
-        echo "<p>Ya existe un usuario registrado con ese userName o email.</p>";
+        echo "<h2 class='text-black bg-danger text-center d-inline-block border rounded p-3'>Error</h2>";
+        echo "<p>El userName o email introducido se encuentra actualmente en uso. Por favor, elige otro.</p>";
+        exit();
     }
+    try {
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (userName, email, password, name, surname, phone, birthdate, gender)
+        $sql = "INSERT INTO users (userName, email, password, name, surname, phone, birthdate, gender)
     VALUES (:userName, :email, :password, :name, :surname, :phone, :birthdate, :gender)";
 
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        'userName' => $userName,
-        'email' => $email,
-        'password' => $password_hash,
-        'name' => $name,
-        'surname' => $surname,
-        'phone' => $phone,
-        'birthdate' => $birthdate,
-        ':gender' => $gender
-    ]);
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'userName' => $userName,
+            'email' => $email,
+            'password' => $password_hash,
+            'name' => $name,
+            'surname' => $surname,
+            'phone' => $phone,
+            'birthdate' => $birthdate,
+            'gender' => $gender
+        ]);
 
-    echo "Usuario registrado correctamente";
+        echo "<div class='container mt-5'>";
+        echo "<h2 class='text-black bg-sky text-center d-inline-block border rounded p-3'>Enhorabuena</h2>";
+        echo "<p>Usuario registrado correctamente</p>";
+    } catch (PDOException $e) {
+        echo "<div class='container mt-5'>";
+        echo "<h2 class='text-black bg-danger text-center d-inline-block border rounded p-3'>Error</h2>";
+        echo "<p><strong>Se ha producido un error al registrar el usuario:</strong> " . $e->getMessage() . "</p></div>";
+    }
 }
-?>

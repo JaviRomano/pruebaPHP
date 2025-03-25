@@ -1,10 +1,10 @@
 <?php
 
 $host = 'localhost';
-$port = '3307';
+$port = '3306';
 $dbname = 'prueba_multiplicalia';
 $user = 'root';
-$pass = 'Changem0';
+$pass = '';
 
 try {
     $pdo = new PDO("mysql:
