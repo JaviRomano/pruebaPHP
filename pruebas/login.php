@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $title = "Login";
 include 'header.php';
 ?>
@@ -19,7 +21,10 @@ include 'header.php';
                 <button type="submit" class="btn btn-light">Aceptar</button>
             </div>
         </form>
-
+        <div class="text-center">
+            <a href='register.php' class='btn btn-orange me-3'>
+                Registrar nuevo usuario
+            </a>
+        </div>
     </div>
-
 </div>

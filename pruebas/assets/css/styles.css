@@ -1,3 +1,11 @@
+body{
+    background-image: url(/assets/img/wp.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 
 .bg-orange {
     background-color: #ff5733 !important;

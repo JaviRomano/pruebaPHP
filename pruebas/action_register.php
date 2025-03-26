@@ -1,4 +1,5 @@
 <?php
+$title = "Registro completo";
 include 'header.php';
 require 'config.php';
 

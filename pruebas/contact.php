@@ -1,7 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 $title = "Contacto";
 include 'header.php';
-include 'config.php';  // este tipo de datos suele ubicarse en archivo 'config.php'
+include 'config.php';
 
 ?>
 
@@ -31,7 +36,7 @@ include 'config.php';  // este tipo de datos suele ubicarse en archivo 'config.p
                     <div class="mb-3">
                         <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
                         <input type="date" name="birthdate" id="birthdate" class="form-control" required>
-                    </div>                   
+                    </div>
                     <div class="mb-3">
                         <label for="department" class="form-label">¿Con quien desea contactar?</label>
                         <select name="department" id="department" class="form-select" required>

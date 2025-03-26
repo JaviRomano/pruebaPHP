@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 $title = "Inicio";
 include 'header.php';
 
@@ -12,10 +17,7 @@ echo "<div class='container pt-4 pb-5 mt-2'>
 <h5>Hoy es $formattedDate</h5>
 
 <div class=' mt-4'>
-<a href='login.php' class='btn btn-sky me-3'>
-        Login
-    </a>
-<a href='register.php' class='btn btn-orange me-3'>
+    <a href='register.php' class='btn btn-orange me-3'>
         Registrar nuevo usuario
     </a>
 </div>
